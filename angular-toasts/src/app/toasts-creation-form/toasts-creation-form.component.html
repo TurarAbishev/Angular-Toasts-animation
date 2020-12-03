@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Toast Form</h1>
+  <form (ngSubmit)="onSubmit()" #toastForm="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title"
+             required [(ngModel)]="title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <input type="text" class="form-control" id="content" [(ngModel)]="content" name="content">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select name="type" id="type" [(ngModel)]="type">
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration</label>
+      <input type="number" class="form-control" id="duration" [(ngModel)]="duration" name="duration">
+    </div>
+
+    <div class="form-group">
+      <label for="show-duration">Show duration</label>
+      <input type="checkbox" class="form-control" id="show-duration" [(ngModel)]="showDuration"
+             name="showDuration">
+    </div>
+
+    <div class="form-group">
+      <label for="verticalPosition">Position</label>
+      <select name="position" id="verticalPosition" [(ngModel)]="verticalPosition" required>
+        <option *ngFor="let pos of positionOptions" [value]="pos">{{pos}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="horizontalPosition">Position</label>
+      <select name="horizontalPosition" id="horizontalPosition" [(ngModel)]="horizontalPosition" required>
+        <option *ngFor="let pos of positionOptions" [value]="pos">{{pos}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!toastForm.form.valid">Submit</button>
+  </form>
+
+</div>

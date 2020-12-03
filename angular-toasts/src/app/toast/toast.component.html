@@ -1,0 +1,19 @@
+  <div class="toast toast-{{toast.type}}" [style.top.px]="initialVertical + i * 100" [style.left.px]="initialHorizontal" [style.animation]="toast.horizontalPosition === 'top' ? 'move-reverse 1s': 'move 1s'" *ngIf="toast.verticalPosition==='top'">
+    <h4 class="toast-heading">{{toast.title}}</h4>
+    <p>{{toast.content}}</p>
+    <a class="close" (click)="remove.emit(i)">&times;</a>
+    <div class="toast__bottom" *ngIf="toast.showDuration && toast.duration">
+      <mat-progress-bar mode="determinate" [value]="(toast.duration / initialDuration) * 100"></mat-progress-bar>
+    </div>
+  </div>
+
+  <div class="toast toast-{{toast.type}}" [style.top.px]="initialVertical - i * 100" [style.left.px]="initialHorizontal" [style.animation]="toast.horizontalPosition === 'top' ? 'move-reverse 1s': 'move 1s'" *ngIf="toast.verticalPosition==='bottom' || toast.verticalPosition === 'center'">
+    <h4 class="toast-heading">{{toast.title}}</h4>
+    <p>{{toast.content}}</p>
+    <a class="close" (click)="remove.emit(i)">&times;</a>
+    <div class="toast__bottom" *ngIf="toast.showDuration && toast.duration">
+      <mat-progress-bar mode="determinate" [value]="(toast.duration / initialDuration) * 100"></mat-progress-bar>
+    </div>
+
+  </div>
+
